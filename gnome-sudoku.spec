@@ -1,19 +1,21 @@
 Summary:	Simple interface for playing, saving, printing and solving Sudoku
 Summary(pl.UTF-8):	Prosty interfejs do grania, zapisywania, drukowania i rozwiązywania Sudoku
 Name:		gnome-sudoku
-Version:	3.10.2
+Version:	3.12.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-sudoku/3.10/%{name}-%{version}.tar.xz
-# Source0-md5:	ee06d241a3ad1dbfce29419e2f5ef62d
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-sudoku/3.12/%{name}-%{version}.tar.xz
+# Source0-md5:	620d85ad3aa8e3434317c3e509f4a246
 URL:		https://wiki.gnome.org/Apps/Sudoku
-BuildRequires:	autoconf
+BuildRequires:	appdata-tools
+BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
-BuildRequires:	intltool >= 0.35.0
+BuildRequires:	gnome-common
+BuildRequires:	intltool >= 0.50.0
 BuildRequires:	pkgconfig
-BuildRequires:	python >= 1:2.4
-BuildRequires:	python-pygobject3-devel >= 2.28.3
+BuildRequires:	python3 >= 1:3.2
+BuildRequires:	python3-pygobject3-devel >= 3.12.0
 BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.26.0
@@ -21,11 +23,9 @@ Requires:	gdk-pixbuf2
 Requires:	gobject-introspection >= 0.10.0
 Requires:	gtk+3
 Requires:	hicolor-icon-theme
-Requires:	python-pycairo
-Requires:	python-pygobject3
-Provides:	gnome-games-sudoku
+Requires:	python3-pycairo
+Requires:	python3-pygobject3
 Provides:	gnome-games-sudoku = 1:%{version}-%{release}
-Obsoletes:	gnome-games-sudoku
 Obsoletes:	gnome-games-sudoku < 1:3.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -56,8 +56,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%py_postclean
-
 %find_lang %{name} --with-gnome
 
 %clean
@@ -84,8 +82,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/HighContrast/*/*/*.png
 %{_iconsdir}/hicolor/*/*/*.png
 %{_iconsdir}/hicolor/*/*/*.svg
-%dir %{py_sitescriptdir}/gnome_sudoku
-%{py_sitescriptdir}/gnome_sudoku/*.py[co]
-%dir %{py_sitescriptdir}/gnome_sudoku/gtk_goodies
-%{py_sitescriptdir}/gnome_sudoku/gtk_goodies/*.py[co]
+%dir %{py3_sitescriptdir}/gnome_sudoku
+%{py3_sitescriptdir}/gnome_sudoku/*.py
+%{py3_sitescriptdir}/gnome_sudoku/__pycache__
+%dir %{py3_sitescriptdir}/gnome_sudoku/gtk_goodies
+%{py3_sitescriptdir}/gnome_sudoku/gtk_goodies/*.py
+%{py3_sitescriptdir}/gnome_sudoku/gtk_goodies/__pycache__
 %{_mandir}/man6/gnome-sudoku.6*
