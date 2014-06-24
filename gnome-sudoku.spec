@@ -1,12 +1,12 @@
 Summary:	Simple interface for playing, saving, printing and solving Sudoku
 Summary(pl.UTF-8):	Prosty interfejs do grania, zapisywania, drukowania i rozwiązywania Sudoku
 Name:		gnome-sudoku
-Version:	3.12.1
+Version:	3.12.2
 Release:	1
-License:	GPL v2
+License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-sudoku/3.12/%{name}-%{version}.tar.xz
-# Source0-md5:	620d85ad3aa8e3434317c3e509f4a246
+# Source0-md5:	b462663d952c62d91b8319d9d58949a5
 URL:		https://wiki.gnome.org/Apps/Sudoku
 BuildRequires:	appdata-tools
 BuildRequires:	autoconf >= 2.63
@@ -19,12 +19,14 @@ BuildRequires:	python3-pygobject3-devel >= 3.12.0
 BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.26.0
-Requires:	gdk-pixbuf2
+Requires:	gdk-pixbuf2 >= 2.0
+Requires:	glib2 >= 2.0
 Requires:	gobject-introspection >= 0.10.0
-Requires:	gtk+3
+Requires:	gtk+3 >= 3.0
 Requires:	hicolor-icon-theme
+Requires:	pango
 Requires:	python3-pycairo
-Requires:	python3-pygobject3
+Requires:	python3-pygobject3 >= 3.12.0
 Provides:	gnome-games-sudoku = 1:%{version}-%{release}
 Obsoletes:	gnome-games-sudoku < 1:3.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -79,9 +81,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-sudoku.gschema.xml
 %{_datadir}/gnome-sudoku
 %{_desktopdir}/gnome-sudoku.desktop
-%{_iconsdir}/HighContrast/*/*/*.png
-%{_iconsdir}/hicolor/*/*/*.png
-%{_iconsdir}/hicolor/*/*/*.svg
+%{_iconsdir}/HighContrast/*/apps/gnome-sudoku.png
+%{_iconsdir}/hicolor/*/apps/gnome-sudoku.png
+%{_iconsdir}/hicolor/scalable/apps/gnome-sudoku.svg
 %dir %{py3_sitescriptdir}/gnome_sudoku
 %{py3_sitescriptdir}/gnome_sudoku/*.py
 %{py3_sitescriptdir}/gnome_sudoku/__pycache__
