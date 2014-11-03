@@ -1,32 +1,33 @@
 Summary:	Simple interface for playing, saving, printing and solving Sudoku
 Summary(pl.UTF-8):	Prosty interfejs do grania, zapisywania, drukowania i rozwiązywania Sudoku
 Name:		gnome-sudoku
-Version:	3.12.3
-Release:	2
+Version:	3.14.1
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-sudoku/3.12/%{name}-%{version}.tar.xz
-# Source0-md5:	db1751f2053475cb9c0f820bea41f07a
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-sudoku/3.14/%{name}-%{version}.tar.xz
+# Source0-md5:	e42807245caca15a00d3a71ca5a15311
 URL:		https://wiki.gnome.org/Apps/Sudoku
 BuildRequires:	appdata-tools
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
+BuildRequires:	glib2-devel >= 1:2.40.0
 BuildRequires:	gnome-common
+BuildRequires:	gtk+3-devel >= 3.14.0
 BuildRequires:	intltool >= 0.50.0
+BuildRequires:	json-glib-devel
+BuildRequires:	libgee-devel
+BuildRequires:	libtool >= 2:2.4
 BuildRequires:	pkgconfig
-BuildRequires:	python3 >= 1:3.2
-BuildRequires:	python3-pygobject3-devel >= 3.12.0
+BuildRequires:	qqwing-devel >= 1.2.0
+BuildRequires:	vala >= 2:0.26.0
 BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.26.0
-Requires:	gdk-pixbuf2 >= 2.0
-Requires:	glib2 >= 2.0
-Requires:	gobject-introspection >= 0.10.0
-Requires:	gtk+3 >= 3.0
+Requires:	glib2 >= 1:2.40.0
+Requires:	gtk+3 >= 3.14.0
 Requires:	hicolor-icon-theme
-Requires:	pango
-Requires:	python3-pycairo
-Requires:	python3-pygobject3 >= 3.12.0
+Requires:	qqwing-libs >= 1.2.0
 Provides:	gnome-games-sudoku = 1:%{version}-%{release}
 Obsoletes:	gnome-games-sudoku < 1:3.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -44,7 +45,8 @@ drukowania i rozwiązywania Sudoku.
 
 %build
 %{__intltoolize}
-%{__aclocal}
+%{__libtoolize}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
 %configure \
@@ -78,16 +80,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc NEWS
 %attr(755,root,root) %{_bindir}/gnome-sudoku
 %{_datadir}/appdata/gnome-sudoku.appdata.xml
-%{_datadir}/glib-2.0/schemas/org.gnome.gnome-sudoku.gschema.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.sudoku.gschema.xml
 %{_datadir}/gnome-sudoku
 %{_desktopdir}/gnome-sudoku.desktop
 %{_iconsdir}/HighContrast/*/apps/gnome-sudoku.png
 %{_iconsdir}/hicolor/*/apps/gnome-sudoku.png
 %{_iconsdir}/hicolor/scalable/apps/gnome-sudoku.svg
-%dir %{py3_sitescriptdir}/gnome_sudoku
-%{py3_sitescriptdir}/gnome_sudoku/*.py
-%{py3_sitescriptdir}/gnome_sudoku/__pycache__
-%dir %{py3_sitescriptdir}/gnome_sudoku/gtk_goodies
-%{py3_sitescriptdir}/gnome_sudoku/gtk_goodies/*.py
-%{py3_sitescriptdir}/gnome_sudoku/gtk_goodies/__pycache__
 %{_mandir}/man6/gnome-sudoku.6*
