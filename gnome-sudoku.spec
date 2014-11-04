@@ -16,14 +16,14 @@ BuildRequires:	gnome-common
 BuildRequires:	gtk+3-devel >= 3.14.0
 BuildRequires:	intltool >= 0.50.0
 BuildRequires:	json-glib-devel
-BuildRequires:	libgee-devel
+BuildRequires:	libgee-devel >= 0.8
 BuildRequires:	libtool >= 2:2.4
 BuildRequires:	pkgconfig
 BuildRequires:	qqwing-devel >= 1.2.0
 BuildRequires:	vala >= 2:0.26.0
 BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
-Requires(post,postun):	glib2 >= 1:2.26.0
+Requires(post,postun):	glib2 >= 1:2.40.0
 Requires:	glib2 >= 1:2.40.0
 Requires:	gtk+3 >= 3.14.0
 Requires:	hicolor-icon-theme
