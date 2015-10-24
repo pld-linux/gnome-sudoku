@@ -1,33 +1,33 @@
 Summary:	Simple interface for playing, saving, printing and solving Sudoku
 Summary(pl.UTF-8):	Prosty interfejs do grania, zapisywania, drukowania i rozwiązywania Sudoku
 Name:		gnome-sudoku
-Version:	3.16.0
+Version:	3.18.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-sudoku/3.16/%{name}-%{version}.tar.xz
-# Source0-md5:	4e6e4715347aff5e7b9bfcf6589b3a8e
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-sudoku/3.18/%{name}-%{version}.tar.xz
+# Source0-md5:	afff64306fabc9f1fcd95a06cb8077e6
 URL:		https://wiki.gnome.org/Apps/Sudoku
 BuildRequires:	appdata-tools
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	glib2-devel >= 1:2.40.0
 BuildRequires:	gnome-common
-BuildRequires:	gtk+3-devel >= 3.14.0
+BuildRequires:	gtk+3-devel >= 3.15.0
 BuildRequires:	intltool >= 0.50.0
 BuildRequires:	json-glib-devel
 BuildRequires:	libgee-devel >= 0.8
 BuildRequires:	libtool >= 2:2.4
 BuildRequires:	pkgconfig
-BuildRequires:	qqwing-devel >= 1.2.0
-BuildRequires:	vala >= 2:0.26.0
+BuildRequires:	qqwing-devel >= 1.3.4
+BuildRequires:	vala >= 2:0.28.0
 BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.40.0
 Requires:	glib2 >= 1:2.40.0
-Requires:	gtk+3 >= 3.14.0
+Requires:	gtk+3 >= 3.15.0
 Requires:	hicolor-icon-theme
-Requires:	qqwing-libs >= 1.2.0
+Requires:	qqwing-libs >= 1.3.4
 Provides:	gnome-games-sudoku = 1:%{version}-%{release}
 Obsoletes:	gnome-games-sudoku < 1:3.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -83,8 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.sudoku.gschema.xml
 %{_datadir}/gnome-sudoku
 %{_desktopdir}/gnome-sudoku.desktop
-%{_iconsdir}/HighContrast/*/apps/gnome-sudoku.png
-%{_iconsdir}/hicolor/*/apps/gnome-sudoku.png
+%{_iconsdir}/hicolor/*x*/apps/gnome-sudoku.png
 %{_iconsdir}/hicolor/scalable/apps/gnome-sudoku.svg
 %{_iconsdir}/hicolor/scalable/apps/gnome-sudoku-symbolic.svg
 %{_mandir}/man6/gnome-sudoku.6*
