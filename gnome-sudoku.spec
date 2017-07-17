@@ -1,12 +1,12 @@
 Summary:	Simple interface for playing, saving, printing and solving Sudoku
 Summary(pl.UTF-8):	Prosty interfejs do grania, zapisywania, drukowania i rozwiązywania Sudoku
 Name:		gnome-sudoku
-Version:	3.22.2
+Version:	3.24.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-sudoku/3.22/%{name}-%{version}.tar.xz
-# Source0-md5:	ffffa53f14f579a4dbf24231b3266738
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-sudoku/3.24/%{name}-%{version}.tar.xz
+# Source0-md5:	43b0900b9c1878d818a33fcbe8ad10e2
 URL:		https://wiki.gnome.org/Apps/Sudoku
 BuildRequires:	appstream-glib-devel
 BuildRequires:	autoconf >= 2.63
@@ -16,10 +16,11 @@ BuildRequires:	glib2-devel >= 1:2.40.0
 BuildRequires:	gtk+3-devel >= 3.19.0
 BuildRequires:	json-glib-devel
 BuildRequires:	libgee-devel >= 0.8
+BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	libtool >= 2:2.4
 BuildRequires:	pkgconfig
 BuildRequires:	qqwing-devel >= 1.3.4
-BuildRequires:	vala >= 2:0.28.0
+BuildRequires:	vala >= 2:0.36
 BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.40.0
