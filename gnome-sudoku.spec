@@ -1,26 +1,29 @@
 Summary:	Simple interface for playing, saving, printing and solving Sudoku
 Summary(pl.UTF-8):	Prosty interfejs do grania, zapisywania, drukowania i rozwiązywania Sudoku
 Name:		gnome-sudoku
-Version:	3.24.0
+Version:	3.34.1
 Release:	1
-License:	GPL v2+
+License:	GPL v3+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-sudoku/3.24/%{name}-%{version}.tar.xz
-# Source0-md5:	43b0900b9c1878d818a33fcbe8ad10e2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-sudoku/3.34/%{name}-%{version}.tar.xz
+# Source0-md5:	df1edd7081f9d9cce1635d75767752ad
 URL:		https://wiki.gnome.org/Apps/Sudoku
-BuildRequires:	appstream-glib-devel
-BuildRequires:	autoconf >= 2.63
-BuildRequires:	automake >= 1:1.11
+BuildRequires:	appstream-glib
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.40.0
 BuildRequires:	gtk+3-devel >= 3.19.0
 BuildRequires:	json-glib-devel
 BuildRequires:	libgee-devel >= 0.8
 BuildRequires:	libstdc++-devel >= 6:4.7
-BuildRequires:	libtool >= 2:2.4
+BuildRequires:	meson >= 0.44.1
+BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	qqwing-devel >= 1.3.4
+BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala >= 2:0.36
+BuildRequires:	vala-libgee >= 0.8
+BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.40.0
@@ -44,21 +47,14 @@ drukowania i rozwiązywania Sudoku.
 %setup -q
 
 %build
-%{__gettextize}
-%{__libtoolize}
-%{__aclocal} -I m4
-%{__autoconf}
-%{__automake}
-%configure \
-	--disable-silent-rules
+%meson build
 
-%{__make}
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %find_lang %{name} --with-gnome
 
@@ -75,13 +71,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc NEWS
+%doc NEWS README.md
 %attr(755,root,root) %{_bindir}/gnome-sudoku
-%{_datadir}/appdata/gnome-sudoku.appdata.xml
-%{_datadir}/glib-2.0/schemas/org.gnome.sudoku.gschema.xml
-%{_datadir}/gnome-sudoku
-%{_desktopdir}/gnome-sudoku.desktop
-%{_iconsdir}/hicolor/*x*/apps/gnome-sudoku.png
-%{_iconsdir}/hicolor/scalable/apps/gnome-sudoku.svg
-%{_iconsdir}/hicolor/scalable/apps/gnome-sudoku-symbolic.svg
+%{_datadir}/glib-2.0/schemas/org.gnome.Sudoku.gschema.xml
+%{_datadir}/metainfo/org.gnome.Sudoku.appdata.xml
+%{_desktopdir}/org.gnome.Sudoku.desktop
+%{_iconsdir}/hicolor/*x*/apps/org.gnome.Sudoku.png
+%{_iconsdir}/hicolor/scalable/apps/org.gnome.Sudoku.svg
+%{_iconsdir}/hicolor/symbolic/apps/org.gnome.Sudoku-symbolic.svg
 %{_mandir}/man6/gnome-sudoku.6*
