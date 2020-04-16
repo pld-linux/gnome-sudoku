@@ -1,12 +1,12 @@
 Summary:	Simple interface for playing, saving, printing and solving Sudoku
 Summary(pl.UTF-8):	Prosty interfejs do grania, zapisywania, drukowania i rozwiązywania Sudoku
 Name:		gnome-sudoku
-Version:	3.34.1
+Version:	3.36.0
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-sudoku/3.34/%{name}-%{version}.tar.xz
-# Source0-md5:	df1edd7081f9d9cce1635d75767752ad
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-sudoku/3.36/%{name}-%{version}.tar.xz
+# Source0-md5:	3d389f0730f2a15af3035064f6e88525
 URL:		https://wiki.gnome.org/Apps/Sudoku
 BuildRequires:	appstream-glib
 BuildRequires:	gettext-tools >= 0.19.8
