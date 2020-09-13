@@ -1,17 +1,17 @@
 Summary:	Simple interface for playing, saving, printing and solving Sudoku
 Summary(pl.UTF-8):	Prosty interfejs do grania, zapisywania, drukowania i rozwiązywania Sudoku
 Name:		gnome-sudoku
-Version:	3.36.0
+Version:	3.38.0
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-sudoku/3.36/%{name}-%{version}.tar.xz
-# Source0-md5:	3d389f0730f2a15af3035064f6e88525
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-sudoku/3.38/%{name}-%{version}.tar.xz
+# Source0-md5:	6ae8c2324b77c0e520698ab1d7e96181
 URL:		https://wiki.gnome.org/Apps/Sudoku
 BuildRequires:	appstream-glib
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.40.0
-BuildRequires:	gtk+3-devel >= 3.19.0
+BuildRequires:	gtk+3-devel >= 3.24.0
 BuildRequires:	json-glib-devel
 BuildRequires:	libgee-devel >= 0.8
 BuildRequires:	libstdc++-devel >= 6:4.7
@@ -28,7 +28,7 @@ BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.40.0
 Requires:	glib2 >= 1:2.40.0
-Requires:	gtk+3 >= 3.19.0
+Requires:	gtk+3 >= 3.24.0
 Requires:	hicolor-icon-theme
 Requires:	qqwing-libs >= 1.3.4
 Provides:	gnome-games-sudoku = 1:%{version}-%{release}
@@ -73,10 +73,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc NEWS README.md
 %attr(755,root,root) %{_bindir}/gnome-sudoku
+%{_datadir}/dbus-1/services/org.gnome.Sudoku.service
 %{_datadir}/glib-2.0/schemas/org.gnome.Sudoku.gschema.xml
 %{_datadir}/metainfo/org.gnome.Sudoku.appdata.xml
 %{_desktopdir}/org.gnome.Sudoku.desktop
-%{_iconsdir}/hicolor/*x*/apps/org.gnome.Sudoku.png
 %{_iconsdir}/hicolor/scalable/apps/org.gnome.Sudoku.svg
 %{_iconsdir}/hicolor/symbolic/apps/org.gnome.Sudoku-symbolic.svg
 %{_mandir}/man6/gnome-sudoku.6*
