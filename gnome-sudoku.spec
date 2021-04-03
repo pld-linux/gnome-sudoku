@@ -1,12 +1,12 @@
 Summary:	Simple interface for playing, saving, printing and solving Sudoku
 Summary(pl.UTF-8):	Prosty interfejs do grania, zapisywania, drukowania i rozwiązywania Sudoku
 Name:		gnome-sudoku
-Version:	3.38.0
+Version:	40.0
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-sudoku/3.38/%{name}-%{version}.tar.xz
-# Source0-md5:	6ae8c2324b77c0e520698ab1d7e96181
+Source0:	https://download.gnome.org/sources/gnome-sudoku/40/%{name}-%{version}.tar.xz
+# Source0-md5:	feaf3de70ff53bdc8cfe76500d79f2b9
 URL:		https://wiki.gnome.org/Apps/Sudoku
 BuildRequires:	appstream-glib
 BuildRequires:	gettext-tools >= 0.19.8
@@ -15,7 +15,7 @@ BuildRequires:	gtk+3-devel >= 3.24.0
 BuildRequires:	json-glib-devel
 BuildRequires:	libgee-devel >= 0.8
 BuildRequires:	libstdc++-devel >= 6:4.7
-BuildRequires:	meson >= 0.44.1
+BuildRequires:	meson >= 0.50
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	qqwing-devel >= 1.3.4
@@ -25,8 +25,8 @@ BuildRequires:	vala >= 2:0.36
 BuildRequires:	vala-libgee >= 0.8
 BuildRequires:	xz
 BuildRequires:	yelp-tools
-Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.40.0
+Requires(post,postun):	gtk-update-icon-cache
 Requires:	glib2 >= 1:2.40.0
 Requires:	gtk+3 >= 3.24.0
 Requires:	hicolor-icon-theme
