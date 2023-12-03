@@ -2,12 +2,12 @@
 Summary:	Simple interface for playing, saving, printing and solving Sudoku
 Summary(pl.UTF-8):	Prosty interfejs do grania, zapisywania, drukowania i rozwiązywania Sudoku
 Name:		gnome-sudoku
-Version:	45.2
+Version:	45.3
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
 Source0:	https://download.gnome.org/sources/gnome-sudoku/45/%{name}-%{version}.tar.xz
-# Source0-md5:	3563d09ab909eff9e1f934a6e9721290
+# Source0-md5:	d8c73fcdc84ee228600e1dbac8f2ff66
 URL:		https://wiki.gnome.org/Apps/Sudoku
 BuildRequires:	appstream-glib
 BuildRequires:	gettext-tools >= 0.19.8
