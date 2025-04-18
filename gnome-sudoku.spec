@@ -2,26 +2,26 @@
 Summary:	Simple interface for playing, saving, printing and solving Sudoku
 Summary(pl.UTF-8):	Prosty interfejs do grania, zapisywania, drukowania i rozwiązywania Sudoku
 Name:		gnome-sudoku
-Version:	47.1.1
+Version:	47.3
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
 Source0:	https://download.gnome.org/sources/gnome-sudoku/47/%{name}-%{version}.tar.xz
-# Source0-md5:	0779efafe8afc9d6d13bf540665f9486
+# Source0-md5:	2ce5e33b0d6d6dd7a407014bf04a9540
 URL:		https://wiki.gnome.org/Apps/Sudoku
 BuildRequires:	AppStream
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.40.0
-BuildRequires:	gtk4-devel >= 4.10.0
+BuildRequires:	gtk4-devel >= 4.15.2
 BuildRequires:	json-glib-devel
-BuildRequires:	libadwaita-devel >= 1.5
+BuildRequires:	libadwaita-devel >= 1.6
 BuildRequires:	libgee-devel >= 0.8
 BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	meson >= 1.4
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	qqwing-devel >= 1.3.4
-BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala >= 2:0.36
 BuildRequires:	vala-libgee >= 0.8
@@ -30,9 +30,9 @@ BuildRequires:	yelp-tools
 Requires(post,postun):	glib2 >= 1:2.40.0
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	glib2 >= 1:2.40.0
-Requires:	gtk4 >= 4.10.0
+Requires:	gtk4 >= 4.15.2
 Requires:	hicolor-icon-theme
-Requires:	libadwaita >= 1.5
+Requires:	libadwaita >= 1.6
 Requires:	qqwing-libs >= 1.3.4
 Provides:	gnome-games-sudoku = 1:%{version}-%{release}
 Obsoletes:	gnome-games-sudoku < 1:3.8.0
@@ -50,14 +50,14 @@ drukowania i rozwiązywania Sudoku.
 %setup -q
 
 %build
-%meson build
+%meson
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 %find_lang %{name} --with-gnome
 
