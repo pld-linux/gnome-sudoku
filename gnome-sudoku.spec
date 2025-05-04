@@ -2,16 +2,17 @@
 Summary:	Simple interface for playing, saving, printing and solving Sudoku
 Summary(pl.UTF-8):	Prosty interfejs do grania, zapisywania, drukowania i rozwiązywania Sudoku
 Name:		gnome-sudoku
-Version:	47.3
+Version:	48.1
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
-Source0:	https://download.gnome.org/sources/gnome-sudoku/47/%{name}-%{version}.tar.xz
-# Source0-md5:	2ce5e33b0d6d6dd7a407014bf04a9540
+Source0:	https://download.gnome.org/sources/gnome-sudoku/48/%{name}-%{version}.tar.xz
+# Source0-md5:	3069215f1940a2022e89d68bd2acdb45
 URL:		https://wiki.gnome.org/Apps/Sudoku
 BuildRequires:	AppStream
+BuildRequires:	blueprint-compiler
 BuildRequires:	gettext-tools >= 0.19.8
-BuildRequires:	glib2-devel >= 1:2.40.0
+BuildRequires:	glib2-devel >= 1:2.76.0
 BuildRequires:	gtk4-devel >= 4.15.2
 BuildRequires:	json-glib-devel
 BuildRequires:	libadwaita-devel >= 1.6
@@ -27,9 +28,9 @@ BuildRequires:	vala >= 2:0.36
 BuildRequires:	vala-libgee >= 0.8
 BuildRequires:	xz
 BuildRequires:	yelp-tools
-Requires(post,postun):	glib2 >= 1:2.40.0
+Requires(post,postun):	glib2 >= 1:2.76.0
 Requires(post,postun):	gtk-update-icon-cache
-Requires:	glib2 >= 1:2.40.0
+Requires:	glib2 >= 1:2.76.0
 Requires:	gtk4 >= 4.15.2
 Requires:	hicolor-icon-theme
 Requires:	libadwaita >= 1.6
